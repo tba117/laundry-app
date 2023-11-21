@@ -1,0 +1,464 @@
+/*------家庭洗濯ボタン------*/
+.accordion001{
+    max-width: 500px;  /*最大幅を500pxに */
+    background-color: #f9ced5;
+    margin: 0 auto;     /*アコーディオンボタンを水平方向に中央配置*/
+    border-radius: 5px;  /*角を5pxの丸みに*/
+    margin-bottom: 5px;
+  }
+  
+  .accordion001:not([open]){  /*開いていないとき*/
+    margin-bottom: 7px;
+  }
+  
+  .accordion001 summary{  /*アコーディオンの親ボタン*/
+    display: flex;   /*フレックスボックスとして配置*/
+    justify-content: space-between;  /*要素間のスペースを均等に*/
+    align-items: center;   /*要素を水平方向に中央配置*/
+    position: relative;  /*相対位置設定*/
+    padding: 1em 2em;  /*emは16px*1em = 16em*/
+    border-radius: 5px;  /*角を5pxの丸みに*/
+    background-color: #FF6699;
+    color: #ffffff;
+    font-weight: 600;  /*フォントの太さ*/
+    cursor: pointer;  /*マウスカーソルをポインターに*/
+    background-image: url('/img/box01_icon10.png');
+    background-repeat: no-repeat;
+    background-position: 16%;
+  }
+  
+  .accordion001 summary::-webkit-details-marker{  /*Safariで表示されるデフォルトの三角形アイコンを消します*/
+    display: none;
+  }
+  
+  .accordion001 summary::after{  /*三角ボタンの設定*/
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    content: '';
+    transition: transform .3s;
+  }
+  
+  .accordion001[open] summary::after{  /*アコーディオンが開いた時のスタイル*/
+    transform: rotate(225deg);
+  }
+  
+  .accordion001 button{
+    transform: translateY(-10px);
+    margin: 5px;
+    padding: 0.5px;
+    transition: transform .5s;
+    border-radius: 5px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+  }
+  
+  .accordion001[open] button{
+    transform: none;
+    opacity: 1;
+  }
+  
+  .accordion001 img{
+    width: 63px;
+    height: 55.5px;
+  }
+
+  .accordion001 button:hover{
+    background-color: #f9ced5;
+  }
+
+  .accordion001 button :active{
+    transform: scale(.95);
+  }
+  
+  
+  /*------漂白ボタン------*/
+  .accordion002{
+    max-width: 500px;
+    background-color: #f4d392;
+    margin:  auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .accordion002:not([open]){
+    margin-bottom: 7px;
+  }
+  
+  .accordion002 summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border-radius: 5px;
+    background-color: #FFA500;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    background-image: url('/img/box02_icon01.png');
+    background-repeat: no-repeat;
+    background-position: 16%;
+  }
+  
+  .accordion002 summary::-webkit-details-marker{
+    display: none;
+  }
+  
+  .accordion002 summary::after{
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    content: '';
+    transition: transform .3s;
+  }
+  
+  .accordion002[open] summary::after{
+    transform: rotate(225deg);
+  }
+  
+  .accordion002 button{
+    transform: translateY(-10px);
+    margin: 5px;
+    padding: 0.5px;
+    transition: transform .5s, opacity .5s;
+    border-radius: 5px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+  }
+  
+  .accordion002[open] button{
+    transform: none;
+    opacity: 1;
+  }
+  
+  .accordion002 img{
+    width: 63px;
+    height: 55.5px;
+  }
+
+  .accordion002 button:hover{
+    background-color: #f4d392;
+  }
+  
+  .accordion002 button :active{
+    transform: scale(.95);
+  }
+  
+
+
+  /*------乾燥方法ボタン------*/
+  .accordion003{
+    max-width: 500px;
+    background-color: #f6e79e;
+    margin:  auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .accordion003:not([open]){
+    margin-bottom: 7px;
+  }
+  
+  .accordion003 summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border-radius: 5px;
+    background-color: #FFD700;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    background-image: url('/img/box03_icon01.png');
+    background-repeat: no-repeat;
+    background-position: 16%;
+  }
+  
+  .accordion003 summary::-webkit-details-marker{
+    display: none;
+  }
+  
+  .accordion003 summary::after{
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    content: '';
+    transition: transform .3s;
+  }
+  
+  .accordion003[open] summary::after{
+    transform: rotate(225deg);
+  }
+  
+  .accordion003 button{
+    transform: translateY(-10px);
+    margin: 5px;
+    padding: 0.5px;
+    transition: transform .5s, opacity .5s;
+    border-radius: 5px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+  }
+  
+  .accordion003[open] button{
+    transform: none;
+    opacity: 1;
+  }
+  
+  .accordion003 img{
+    width: 65px;
+    height: 61px;
+  }
+
+  .accordion003 button:hover{
+    background-color: #f6e79e;
+  }
+  
+  .accordion003 button :active{
+    transform: scale(.95);
+  }
+  
+
+
+  /*------干し方ボタン------*/
+  .accordion004{
+    max-width: 500px;
+    background-color: #e2fa9a;
+    margin:  auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .accordion004:not([open]){
+    margin-bottom: 7px;
+  }
+  
+  .accordion004 summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border-radius: 5px;
+    background-color: #32CD32	;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    background-image: url('/img/box07_icon01.png');
+    background-repeat: no-repeat;
+    background-position: 16%;
+  }
+  
+  .accordion004 summary::-webkit-details-marker{
+    display: none;
+  }
+  
+  .accordion004 summary::after{
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    content: '';
+    transition: transform .3s;
+  }
+  
+  .accordion004[open] summary::after{
+    transform: rotate(225deg);
+  }
+  
+  .accordion004 button{
+    transform: translateY(-10px);
+    margin: 5px;
+    padding: 6px;
+    transition: transform .5s, opacity .5s;
+    border-radius: 5px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+  }
+  
+  .accordion004[open] button{
+    transform: none;
+    opacity: 1;
+  }
+  
+  .accordion004 img{
+    width: 63px;
+    height: 61px;
+  }
+
+  .accordion004 button:hover{
+    background-color: #e2fa9a;
+  }
+  
+  .accordion004 button :active{
+    transform: scale(.95);
+  }
+  
+
+
+  /*------アイロンボタン------*/
+  .accordion005{
+    max-width: 500px;
+    background-color: #a8f4cedc;
+    margin:  auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .accordion005:not([open]){
+    margin-bottom: 7px;
+  }
+  
+  .accordion005 summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border-radius: 5px;
+    background-color: #66CDAA;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    background-image: url('/img/box04_icon01.png');
+    background-repeat: no-repeat;
+    background-position: 16%;
+  }
+  
+  .accordion005 summary::-webkit-details-marker{
+    display: none;
+  }
+  
+  .accordion005 summary::after{
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    content: '';
+    transition: transform .3s;
+  }
+  
+  .accordion005[open] summary::after{
+    transform: rotate(225deg);
+  }
+  
+  .accordion005 button{
+    transform: translateY(-10px);
+    margin: 5px;
+    padding: 0.5px;
+    transition: transform .5s, opacity .5s;
+    border-radius: 5px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+  }
+  
+  .accordion005[open] button{
+    transform: none;
+    opacity: 1;
+  }
+  
+  .accordion005 img{
+    width: 63px;
+    height: 55.5px;
+  }
+
+  .accordion005 button:hover{
+    background-color: #a8f4cedc;
+  }
+  
+  .accordion005 button :active{
+    transform: scale(.95);
+  }
+
+
+
+  /*------クリーニングボタン------*/
+  .accordion006{
+    max-width: 500px;
+    background-color: #b9daeb;
+    margin:  auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .accordion006:not([open]){
+    margin-bottom: 7px;
+  }
+  
+  .accordion006 summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border-radius: 5px;
+    background-color: #00BFFF;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    background-image: url('/img/box05_icon01.png');
+    background-repeat: no-repeat;
+    background-position: 16%;
+  }
+  
+  .accordion006 summary::-webkit-details-marker{
+    display: none;
+  }
+  
+  .accordion006 summary::after{
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    content: '';
+    transition: transform .3s;
+  }
+  
+  .accordion006[open] summary::after{
+    transform: rotate(225deg);
+  }
+  
+  .accordion006 button{
+    transform: translateY(-10px);
+    margin: 5px;
+    padding: 0.5px;
+    transition: transform .5s, opacity .5s;
+    border-radius: 5px;
+    border: 1px solid  #cdcdcd;
+    cursor: pointer;
+  }
+  
+  .accordion006[open] button{
+    transform: none;
+    opacity: 1;
+  }
+  
+  .accordion006 img{
+    width: 63px;
+    height: 61px;
+  }
+
+  .accordion006 button:hover{
+    background-color: #b9daeb;
+  }
+
+  .accordion006 button :active{
+    transform: scale(.95);
+  }

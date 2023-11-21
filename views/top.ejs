@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/Accordion.css" />
+    <title>選択表示チェッカー</title>
+    <script>
+var accordion001=[
+        "”洗濯機”使用可能です。30 ℃以下の水温で洗濯出来ます",
+        "洗濯機使用可能ですがウール洗いコース・おしゃれ着コースなどの弱いモードで洗いましょう。30 ℃以下の水温で洗濯出来ます",
+        "洗濯機使用可能ですがウール洗いコース・おしゃれ着コースなどの弱いモードで洗いましょう。30 ℃以下の水温で洗濯出来ます",
+        "”洗濯機”使用可能です。40 ℃以下の水温で洗濯出来ます",
+        "洗濯機”使用可能ですがウール洗いコース・おしゃれ着コースなどの弱いモードで洗いましょう。40 ℃以下の水温で洗濯出来ます",
+        "洗濯機”使用可能ですがウール洗いコース・おしゃれ着コースなどの弱いモードで洗いましょう。40 ℃以下の水温で洗濯出来ます",
+        "”洗濯機”使用可能です。50 ℃以下の水温で洗濯出来ます",
+        "洗濯機”使用可能ですがウール洗いコース・おしゃれ着コースなどの弱いモードで洗いましょう。50℃以下の水温で洗濯出来ます",
+        "”洗濯機”使用可能です。 60℃以下の水温で洗濯出来ます",
+        "洗濯機”使用可能ですがウール洗いコース・おしゃれ着コースなどの弱いモードで洗いましょう。60℃以下の水温で洗濯出来ます",
+        "”洗濯機”使用可能です。70 ℃以下の水温で洗濯出来ます",
+        "”洗濯機”使用可能です。95 ℃以下の水温で洗濯出来ます",
+        "洗濯機は使用できませんので、手洗いをしてください。水温は40 ℃を目安にしてください。",
+        "水洗いなどの家庭洗濯禁止です。とにかく家で洗ってはいけません。"
+         ];
+var  accordion002=[
+        "塩素系及び酸素系の漂白剤を使用して漂白ができるます。",
+        "酸素系漂白剤の使用はできますが塩素系漂白剤は使用禁止です。",
+        "塩素系及び酸素系漂白剤の使用禁止です。漂白剤は使用できません。"
+         ];
+var  accordion003=[
+        "タンブル乾燥ができます（排気温度上限80 ℃）",
+        "低い温度でのタンブル乾燥ができます（排気温度上限60 ℃）",
+        "タンブル乾燥禁止です。"
+         ];
+var  accordion004=[
+        "ハンガーにかけるなどのつり干しが最適です。",
+        "ハンガーにかけるなど、日陰でのつり干しが最適です。",
+        "濡れたまま脱水などはせずに、ハンガーなどにかけて干しましょう。",
+        "濡れたまま脱水などはせずに、ハンガーなどにかけて日陰で干しましょう。",
+        "平らな状態で平干しをしましょう。",
+        "平らな状態で日陰で平干しをしましょう。",
+        "濡れたまま脱水などはせずに、平らな状態で平干しをしましょう。",
+        "濡れたまま脱水などはせずに、平らな状態で日陰で平干しをしましょう。"
+         ];
+var  accordion005=[
+        "高温(180℃~210℃)としてアイロン仕上げができます。麻・綿など",
+        "中温(140℃~160℃)としてアイロン仕上げができます。ウール・ポリエステルなど",
+        "低温(80℃~120℃)としてアイロン仕上げができます。シルク・ナイロン・アクリルなど",
+        "アイロンはかけてはいけません。"
+       ];
+ var   accordion006=[
+        "パークロロエチレン及び石油系溶剤によるドライクリーニングができます。（溶剤に2%の水添加）",
+        "パークロロエチレン及び石油系溶剤による弱いドライクリーニングができる",
+        "石油系溶剤によるドライクリーニグができる（溶剤に2%の水添加）",
+        "石油系溶剤による弱いドライクリーニングができる",
+        "ドライクリーニング禁止",
+        "ウエットクリーニングができる。(有機溶剤を使わずに、専門家による特殊な技術で行う水洗いのこと)",
+        "弱い操作のウエットクリーニングができる",
+        "非常に弱い操作のウエットクリーニングができる",
+        "ウエットクリーニング禁止"
+    ];
+
+      
+      var selectedImages = {}; // グローバル変数として選択された画像を保持
+
+var addAnswer = function(accordionId, buttonIndex) {
+  // 各アコーディオンごとに選択情報を保持するオブジェクトを作成
+  if (!selectedImages[accordionId]) {  //!は否定演算子
+    selectedImages[accordionId] = {};
+  }
+
+  // 対応するアコーディオンとボタンの画像を取得
+  var accordion = document.querySelector('.' + accordionId);  //querySelector:HTML要素を取得 この場合.はclassを示す + accordion00X = .accordion001
+  if (!accordion) {
+        console.error('Accordion not found:', accordionId);  //console.error:　Accordion not found:とエラーを表示
+        return;  // アコーディオンが見つからない場合は処理を中断
+    }
+
+  var button = accordion.querySelectorAll('button')[buttonIndex];  //querySelectorAll: 複数のHTML要素を取得 この場合<button>
+  if (!button) {
+        console.error('Button not found:', buttonIndex);
+        return;  // ボタンが見つからない場合は処理を中断
+    }
+
+  var imgSrc = button.querySelector('img').src;  //<img>を取得 imgSrcに格納
+
+  var accordionMeanId = 
+
+  // アコーディオンごとに選択された画像を保存
+  selectedImages[accordionId][buttonIndex] = imgSrc;
+
+  // 選択中の画像を表示
+  updateSelectedImages();
+  updateResultImages();
+  updateResultMean();
+    
+};
+
+var updateSelectedImages = function() {  //選択中のボタンを表示する関数
+  var selectBtn = document.querySelector('.select-btn');  //<class=select-btn>を取得 selectBtnに格納
+
+  // 選択中の画像を表示するための div 要素を作成
+  var selectedImagesDiv = document.createElement('div');   //createElement(): HTMLを生成　この場合<div>を生成 
+  selectedImagesDiv.classList.add('selected-images');  //classList.add(): クラスを追加 この場合<div class=selected-iamge>に
+
+  // グローバル変数に保存された画像を元に img 要素を作成して div 要素に追加
+  for (var accordionId in selectedImages) {
+    for (var buttonIndex in selectedImages[accordionId]) {
+      var imgElement = document.createElement('img');  //<img>を生成 imgElementに格納
+      imgElement.src = selectedImages[accordionId][buttonIndex];  
+      selectedImagesDiv.appendChild(imgElement);  //<div>にimgElemrntを追加
+    }
+  }
+
+  // すでに表示されている場合は一旦クリア
+  selectBtn.innerHTML = '';
+
+  // h3 要素を selectBtn に追加
+  var h3Element = document.createElement('h3');  //<h3>を追加
+  h3Element.textContent = '選択中の洗濯表示：';  //<h3>選択中の洗濯表示</h3>とする
+  selectBtn.appendChild(h3Element);  // <class=select-img>に追加
+
+  // div 要素を selectBtn に追加
+  selectBtn.appendChild(selectedImagesDiv);  //<class=select-img>内に<div>を追加
+ 
+  // クリアボタンを追加
+  var clearBtn = document.createElement('button');  //<button>を追加
+  clearBtn.classList.add('clear-btn');  //<button class=clear-btn>に
+  clearBtn.textContent = '選択をすべてクリアする';   //<button class=clear-btn>選択をすべてクリアする</button>
+  clearBtn.onclick = clearSelection;  //<button class=clear-btn onclick=clearSelection()>
+  selectBtn.appendChild(clearBtn);  //selectBtnにclearBtnを追加
+};
+
+
+
+var updateResultImages = function(){  //結果画像を表示する
+  var resultpage = document.querySelector('.resultpage');
+
+  // 選択中の画像を表示するための div 要素を作成
+  var resultedImagesDiv = document.createElement('div');   //createElement(): HTMLを生成　この場合<div>を生成 
+  resultedImagesDiv.classList.add('selected-images');  //classList.add(): クラスを追加 この場合<div class=selected-iamge>に
+
+  // グローバル変数に保存された画像を元に img 要素を作成して div 要素に追加
+  for (var accordionId in selectedImages) {
+    for (var buttonIndex in selectedImages[accordionId]) {
+      var resultimgElement = document.createElement('img');  //<img>を生成 imgElementに格納
+      resultimgElement.src = selectedImages[accordionId][buttonIndex];  
+      resultedImagesDiv.appendChild(resultimgElement);  //<div>にimgElemrntを追加
+    }
+  }
+
+  // すでに表示されている場合は一旦クリア
+  resultpage.innerHTML = '';
+
+  // h3 要素を resultpage に追加
+  var resulth3Element = document.createElement('h3');  //<h3>を追加
+  resulth3Element.textContent = 'あなたが選択した洗濯表示：';  //<h3>選択中の洗濯表示</h3>とする
+  resultpage.appendChild(resulth3Element);  // <class=select-img>に追加
+
+  // div 要素を resultpage に追加
+  resultpage.appendChild(resultedImagesDiv);  //<class=select-img>内に<div>を追加
+};
+
+
+
+var  updateResultMean = function(){  //洗濯表示の意味を表す関数
+var resultmean = document.querySelector('.resultmean');  //class=resultmeanをhtmlから取得
+resultmean.innerHTML = '';  //すでに表示されている内容をクリア
+var meaningElement = document.createElement('div');
+    meaningElement.innerHTML = '<h3>選択した洗濯表示の意味：</h3>'
+
+for(var accrodionId in selectedImages){
+  for(var buttonIndex in selectedImages[accrodionId]){
+    var imgSrc = selectedImages[accrodionId][buttonIndex];
+
+    var meaningArray;  //meaningArrayを定義
+    switch(accrodionId){  //選択したアコーディオンボタンの種類によって変わる
+      case 'accordion001':  //accordion001の場合
+                meaningArray = accordion001;   
+                break;
+              case 'accordion002':
+                meaningArray = accordion002;
+                break;
+              case 'accordion003':
+                meaningArray = accordion003;
+                break;
+              case 'accordion004':
+                meaningArray = accordion004;
+                break;
+              case 'accordion005':
+                meaningArray = accordion005;
+                break;
+              case 'accordion006':
+                meaningArray = accordion006;
+                break;
+              default:
+                console.error('Unknown accordionId:', accordionId);
+                continue;
+            }
+
+            meaningElement.innerHTML += '<p>' + meaningArray[buttonIndex] + '</p>';  //例：accordion001[0]をpタグで出力
+            resultmean.appendChild(meaningElement);  
+  }
+ }
+};
+
+
+
+var clearSelection = function() {  //選択をすべてクリアする関数
+  selectedImages = {}; // 選択をクリア
+  updateSelectedImages(); // 選択中の画像を更新
+};
+
+
+
+var show = function(){  //結果ページを表示する関数
+  var e = document.querySelector('.resultpage');
+  e.style.display = 'block';
+
+  var x = document.querySelector('.resultmean');
+  x.style.display = 'block';
+};
+
+</script>
+  </head>
+  <body>
+    <header class="header">
+      <h1><a href="/">洗濯表示チェッカー</a></h1>
+    </header>
+
+    <div class="bigimage">
+      <h2>洗濯表示がわからない！</h2>
+      <p>当サイト「洗濯表示チェッカー」は衣類等に記載してある洗濯表示が簡単に確認できるサイトです。</p>
+      <p>完全無料で利用できます。結果がすぐにわかります。</p>
+      <p>まずは洗濯表示を選択してみましょう！</p>
+    </div>
+
+    <div class="content">
+      <div class="Accordion-content">
+        <div class="Accrodion-btn">
+          <details class="accordion001">
+            <summary>家庭洗濯</summary>
+            <button type="button" onclick="addAnswer('accordion001',0)">
+              <img
+                src="/img/box01_icon10.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',1)">
+              <img
+                src="img/box01_icon11.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',2)">
+              <img
+                src="img/box01_icon12.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',3)">
+              <img
+                src="img/box01_icon07.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',4)">
+              <img
+                src="img/box01_icon08.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',5)">
+              <img
+                src="img/box01_icon09.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',6)">
+              <img
+                src="img/box01_icon05.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',7)">
+              <img
+                src="img/box01_icon06.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',8)">
+              <img
+                src="img/box01_icon03.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',9)">
+              <img
+                src="img/box01_icon04.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',10)">
+              <img
+                src="img/box01_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',11)">
+              <img
+                src="img/box01_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',12)">
+              <img
+                src="img/box01_icon13.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion001',13)">
+              <img
+                src="img/box01_icon14.png"
+              />
+            </button>
+          </details>
+
+          <details class="accordion002">
+            <summary>漂白</summary>
+            <button type="button" onclick="addAnswer('accordion002',0)">
+              <img
+                src="img/box02_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion002',1)">
+              <img
+                src="img/box02_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion002',2)">
+              <img
+                src="img/box02_icon03.png"
+              />
+            </button>
+          </details>
+
+          <details class="accordion003">
+            <summary>乾燥方法</summary>
+            <button type="button" onclick="addAnswer('accordion003',0)">
+              <img
+                src="img/box03_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion003',1)">
+              <img
+                src="img/box03_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion003',2)">
+              <img
+                src="img/box03_icon03.png"
+              />
+            </button>
+          </details>
+
+          <details class="accordion004">
+            <summary>干し方</summary>
+            <button type="button" onclick="addAnswer('accordion004',0)">
+              <img
+                src="img/box07_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',1)">
+              <img
+                src="img/box07_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',2)">
+              <img
+                src="img/box07_icon03.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',3)">
+              <img
+                src="img/box07_icon04.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',4)">
+              <img
+                src="img/box07_icon05.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',5)">
+              <img
+                src="img/box07_icon06.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',6)">
+              <img
+                src="img/box07_icon07.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion004',7)">
+              <img
+                src="img/box07_icon08.png"
+              />
+            </button>
+          </details>
+
+          <details class="accordion005">
+            <summary>アイロン</summary>
+            <button type="button" onclick="addAnswer('accordion005',0)">
+              <img
+                src="img/box04_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion005',1)">
+              <img
+                src="img/box04_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion005',2)">
+              <img
+                src="img/box04_icon03.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion005',3)">
+              <img
+                src="img/box04_icon04.png"
+              />
+            </button>
+          </details>
+
+          <details class="accordion006">
+            <summary>クリーニング</summary>
+            <button type="button" onclick="addAnswer('accordion006',0)">
+              <img
+                src="img/box05_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',1)">
+              <img
+                src="img/box05_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',2)">
+              <img
+                src="img/box05_icon03.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',3)">
+              <img
+                src="img/box05_icon04.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',4)">
+              <img
+                src="img/box05_icon05.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',5)">
+              <img
+                src="img/box06_icon01.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',6)">
+              <img
+                src="img/box06_icon02.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',7)">
+              <img
+                src="img/box06_icon03.png"
+              />
+            </button>
+            <button type="button" onclick="addAnswer('accordion006',8)">
+              <img
+                src="img/box06_icon04.png" 
+              />
+            </button>
+          </details>
+        </div>
+        <div class="select-btn">
+          <!-- ここに h3 と クリアボタンが追加されます -->
+        </div>
+      </div>
+    </div>
+
+    <div class="resultbtn-content">
+    <button class="result-btn" onclick="show()">結果を見る</button>
+    </div>
+
+    <div class="resultpage">
+      <!--ここに結果を見るボタンを押したあとの画面が現れる -->
+    </div>
+
+    <div class="resultmean">
+      <!--ここに洗濯表示の意味が表示される  -->
+    
+    </div>
+
+    <footer>
+      <h2>洗濯表示チェッカー</h2>
+      <ul>
+        <li><a href="/">> HOME</a></li>
+        <li><a href="/about">> ABOUT</a></li>
+        <li><a href="/privacy">> プライバシーポリシー</a></li>
+        <li><a href="/disclaimer">> 免責事項</a></li>
+        <li><a href="/mail">> お問い合わせ</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

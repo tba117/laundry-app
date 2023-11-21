@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Form-選択表示チェッカー</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1><a href="/">洗濯表示チェッカー</a></h1>
+    </header>
+
+    <ol class="breadcrumb-004">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/mail">お問い合わせ</a></li>
+    </ol>
+
+    <div class="mail-content">
+    <h2>お問い合わせ</h2>
+    <ul>
+        
+      <li>・こちらのページは、「洗濯表示チェッカー」に関するお問い合わせ・ご意見の送信専用です。</li>
+      <br>  
+      <li>・診断対象となる衣類等に洗濯表示がない場合は、このサイトはご利用できません。</li>
+      <br>
+      <li>・色落ちに関することは、ご自身で確認をお願いします。</li>
+      <br>        <li>・レーヨン、絹、キュプラ、アセテート、皮革、毛皮製品が含まれている衣類等は選択できませんのでご注意ください。</li>
+      <br>
+      <li>・スーツやジャケット、和服、コートなどはクリーニングショップにご相談ください。</li>
+      <br>
+      <li>・洗濯表示に注意事項がある場合は、それらにしたがって下さい。</li> 
+      <br>
+      <li>・お客さまに回答したメールの内容を転用・転載することはご遠慮ください。</li>
+      <br>
+      <li>・本フォームにて送信いただいたお問合せについては、原則３日以内にご返信差し上げます。４日以上経過しても返信がない場合には、大変お手数ですが再度フォームからご連絡いただけますと幸いです。</li>
+      <br>
+      <li>・携帯電話メールの場合は、ドメイン「」からのメールが迷惑メールとして認識されないよう設定をお願いいたします。</li>
+      <br>
+      <li>・入力されたメールアドレスに誤りがある場合は、お問合せへの回答ができませんのでご注意ください。</li>
+      <br>
+      <li>・ご提供いただいた個人情報は、<a href="/privacy">プライバシーポリシー</a>に基づき、利用目的の範囲内で利用させていただき、他には一切使用いたしません。</li>
+    </ul>
+    </div>
+
+    <section class="section">
+      <form method="POST"  action="/mail" class="content-from-contactFrom">
+        <dl>
+          <dt>お名前</dt>
+          <dd><input type="text" name="name" required></dd>
+          <dt>メールアドレス</dt>
+          <dd><input type="email" name="mail" required></dd>
+          <dt>お問い合わせ内容</dt>
+          <dd><textarea name="message" required></textarea></dd>
+        </dl>
+        <div class="btnWrap">
+          <button type="submit" class="button">送信</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <h2>洗濯表示チェッカー</h2>
+      <ul>
+        <li><a href="/">> HOME</a></li>
+        <li><a href="/about">> ABOUT</a></li>
+        <li><a href="/privacy">> プライバシーポリシー</a></li>
+        <li><a href="/disclaimer">> 免責事項</a></li>
+        <li><a href="/mail">> お問い合わせ</a></li>
+      </ul>
+    </footer>
+</body>
+</html>
