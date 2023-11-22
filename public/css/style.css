@@ -165,6 +165,10 @@
     margin-left: 15px;
   }
 
+  .resultmean p{
+    margin: 0 13px;
+  }
+
 
   footer{
     background-color: #444;
@@ -225,7 +229,7 @@
   .mail-content{
     position: relative;
     top: 70px;
-    height: 900px;
+    height: 1580px;
     max-width: 648px;
     margin: 0 auto;
     color: #444;
@@ -542,6 +546,9 @@ color: #00BFFF;
   .breadcrumb-004{
     margin-left: 30px;
   }
+  .resultmean p{
+    margin: 0 20px;
+  }
 
 
   .about-content{
@@ -575,13 +582,16 @@ color: #00BFFF;
   }
   
   .accordion001,.accordion002,.accordion003,.accordion004,.accordion005,.accordion006{
-    width: 380px;
+    width: 355px;
+  }
+
+  .resultmean p{
+    margin: 0 13px;
   }
 
   .mail-content{
-    margin: 0 10px;
-    width: 380px;
-    height: 1000px;
+    width: 355px;
+    height: 1580px;
   }
 
   .mail-content h2{
@@ -594,7 +604,7 @@ color: #00BFFF;
 
   .about-content{
     height: 850px;
-    width: 380px;
+    width: 355px;
     padding: 0px;
     margin: 0 5px;
   }
@@ -608,8 +618,7 @@ color: #00BFFF;
   }
 
   .section input, textarea{
-    margin-left: 13px;
-    width: 380px;
+    width: 100%;
   }
 
   .section dt{
@@ -617,10 +626,10 @@ color: #00BFFF;
   }
 
   .section dd{
-    width: 350px;
+    width: 100%;
   }
 
   .btnWrap button{
-    width: 390px;
+    width: 100%;
   }
 }
