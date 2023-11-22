@@ -575,12 +575,12 @@ color: #00BFFF;
   }
   
   .accordion001,.accordion002,.accordion003,.accordion004,.accordion005,.accordion006{
-    width: 385px;
+    width: 380px;
   }
 
   .mail-content{
-    margin: 0 5px;
-    width: 385px;
+    margin: 0 10px;
+    width: 380px;
     height: 1000px;
   }
 
@@ -594,7 +594,7 @@ color: #00BFFF;
 
   .about-content{
     height: 850px;
-    width: 385px;
+    width: 380px;
     padding: 0px;
     margin: 0 5px;
   }
@@ -608,7 +608,8 @@ color: #00BFFF;
   }
 
   .section input, textarea{
-    width: 360px;
+    margin-left: 13px;
+    width: 380px;
   }
 
   .section dt{
@@ -616,10 +617,10 @@ color: #00BFFF;
   }
 
   .section dd{
-    width: 360px;
+    width: 350px;
   }
 
   .btnWrap button{
-    width: 380px;
+    width: 390px;
   }
 }
